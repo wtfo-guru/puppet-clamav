@@ -175,6 +175,58 @@ class clamav::params {
     $freshclam_default_pidfile        = '/var/run/clamav/freshclam.pid'
     $freshclam_default_updatelogfile  = '/var/log/clamav/freshclam.log'
 
+  } elsif ($::osfamily == 'Archlinux') and (versioncmp($::operatingsystemrelease, '4.19') >= 0) {
+    #### init vars ####
+    $manage_repo       = false
+    $clamav_package    = 'clamav'
+    $clamav_version    = 'installed'
+
+    #### user vars ####
+    $user              = 'clamav'
+    $comment           = undef
+    $uid               = 496
+    $gid               = 496
+    $home              = '/var/lib/clamav'
+    $shell             = '/bin/false'
+    $group             = 'clamav'
+    $groups            = undef
+
+    #### clamd vars ####
+    $clamd_package     = 'clamav-daemon'
+    $clamd_version     = 'installed'
+    $clamd_config      = '/etc/clamav/clamd.conf'
+    $clamd_service     = 'clamav-daemon'
+    $clamd_options     = {}
+
+    #### freshclam vars ####
+    $freshclam_package = 'clamav-freshclam'
+    $freshclam_version = 'installed'
+    $freshclam_config  = '/etc/clamav/freshclam.conf'
+    $freshclam_service = 'clamav-freshclam'
+    $freshclam_options = {}
+    $freshclam_sysconfig = undef
+    $freshclam_delay     = undef
+
+    #### clamav_milter vars ####
+    $clamav_milter_package     = undef
+    $clamav_milter_version     = undef
+    $clamav_milter_config      = undef
+    $clamav_milter_service     = undef
+    $clamav_milter_options     = undef
+    $clamav_milter_default_options = undef
+
+    #### Default values OS specific ####
+    $clamd_default_databasedirectory  = '/var/lib/clamav'
+    $clamd_default_localsocket        = '/var/run/clamav/clamd.ctl'
+    $clamd_default_logfile            = '/var/log/clamav/clamav.log'
+    $clamd_default_logrotate          = true
+    $clamd_default_logsyslog          = false
+    $clamd_default_pidfile            = '/var/run/clamav/clamd.pid'
+    $clamd_default_temporarydirectory = '/tmp'
+    $freshclam_default_databaseowner  = $user
+    $freshclam_default_pidfile        = '/var/run/clamav/freshclam.pid'
+    $freshclam_default_updatelogfile  = '/var/log/clamav/freshclam.log'
+
   } else {
     fail("The ${module_name} module is not supported on a ${::osfamily} based system with version ${::operatingsystemrelease}.")
   }
