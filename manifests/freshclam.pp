@@ -7,7 +7,7 @@ class clamav::freshclam {
   $config_options = $clamav::_freshclam_options
   $freshclam_delay = $clamav::freshclam_delay
 
-  # NOTE: In RedHat this is part of the base clamav_package
+  # NOTE: In RedHat and Archlinux this is part of the base clamav_package
   # NOTE: In Debian this is a dependency of the base clamav_package
   if $clamav::freshclam_package {
     package { 'freshclam':

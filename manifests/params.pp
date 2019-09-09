@@ -192,15 +192,15 @@ class clamav::params {
     $groups            = undef
 
     #### clamd vars ####
-    $clamd_package     = 'clamav-daemon'
-    $clamd_version     = 'installed'
+    $clamd_package     = undef
+    $clamd_version     = undef
     $clamd_config      = '/etc/clamav/clamd.conf'
     $clamd_service     = 'clamav-daemon'
     $clamd_options     = {}
 
     #### freshclam vars ####
-    $freshclam_package = 'clamav-freshclam'
-    $freshclam_version = 'installed'
+    $freshclam_package = undef
+    $freshclam_version = undef
     $freshclam_config  = '/etc/clamav/freshclam.conf'
     $freshclam_service = 'clamav-freshclam'
     $freshclam_options = {}
