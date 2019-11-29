@@ -1,0 +1,14 @@
+---
+clamav::params::comment: ~
+clamav::params::shell: '/bin/false'
+clamav::params::home: '/var/lib/clamav'
+
+clamav::params::clamd_package: 'clamav-daemon'
+
+clamav::params::clamd_default_localsocket: '/var/run/clamav/clamd.ctl'
+clamav::params::clamd_default_logfile: '/var/log/clamav/clamav.log'
+clamav::params::clamd_default_pidfile: '/var/run/clamav/clamd.pid'
+
+clamav::params::freshclam_version: 'installed'
+clamav::params::freshclam_service: 'clamav-freshclam'
+...

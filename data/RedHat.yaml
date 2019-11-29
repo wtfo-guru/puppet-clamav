@@ -1,0 +1,32 @@
+---
+clamav::params::user: 'clamscan'
+clamav::params::comment: 'Clamav scanner user'
+clamav::params::group: 'clamscan'
+clamav::params::home: '/'
+
+clamav::params::clamd_package: 'clam'
+clamav::params::clamd_config: '/etc/clamd.d/scan.conf'
+clamav::params::clamd_service: 'clamd@scan'
+
+
+clamav::params::clamd_default_localsocket: '/var/run/clamd.scan/clamd.sock'
+clamav::params::clamd_default_pidfile: '/var/run/clamd.scan/clamd.pid'
+
+clamav::params::freshclam_config: '/etc/freshclam.conf'
+clamav::params::freshclam_sysconfig: '/etc/sysconfig/freshclam'
+clamav::params::freshclam_default_pidfile: ~
+clamav::params::freshclam_default_databaseowner: 'clamupdate'
+
+clamav::params::clamav_milter_package: 'clamav-milter-systemd'
+clamav::params::clamav_milter_version: 'installed'
+clamav::params::clamav_milter_config : '/etc/mail/clamav-milter.conf'
+clamav::params::clamav_milter_service: 'clamav-milter'
+clamav::params::clamav_milter_options: {}
+clamav::params::clamav_milter_default_options:
+  User: 'clamilt'
+  MilterSocket: 'inet:8890@localhost'
+  ClamdSocket: 'tcp:127.0.0.1'
+  LogSyslog: 'yes'
+
+clamav::params::clamd_default_temporarydirectory: '/var/tmp'
+...

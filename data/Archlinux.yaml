@@ -1,0 +1,17 @@
+---
+clamav::params::comment: 'Clam AntiVirus'
+clamav::params::shell: '/usr/bin/nologin'
+
+clamav::params::clamd_package: ~
+
+clamav::params::clamd_default_localsocket: '/run/clamav/clamd.ctl'
+clamav::params::clamd_default_logfile: '/var/log/clamav/clamav.log'
+clamav::params::clamd_default_pidfile: '/run/clamav/clamd.pid'
+
+clamav::params::freshclam_package: ~
+clamav::params::freshclam_service: 'clamav-freshclam'
+clamav::params::freshclam_default_pidfile: '/run/clamav/freshclam.pid'
+
+clamav::params::clamd_default_logrotate: false
+clamav::params::clamd_default_logsyslog: true
+...

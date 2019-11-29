@@ -9,9 +9,14 @@ describe 'clamav', :type => :class do
 
       context 'with defaults' do
         it { is_expected.to compile.with_all_deps }
-        if facts[:osfamily] == 'RedHat'
-          it { is_expected.to contain_class('epel') }
-        elsif facts[:osfamily] == 'Debian'
+        case facts[:osfamily]
+        when 'RedHat'
+          if facts[:operatingsystemmajrelease].to_i < 8
+            it { is_expected.to contain_class('epel') }
+          else
+            it { is_expected.not_to contain_class('epel') }
+          end
+        else
           it { is_expected.not_to contain_class('epel') }
         end
         it { is_expected.not_to contain_class('clamav::user') }
@@ -58,7 +63,12 @@ describe 'clamav', :type => :class do
       context 'clamav::clamd' do
         let(:params) { { :manage_clamd => true } }
         context 'with defaults' do
-          it { is_expected.to contain_package('clamd') }
+          case facts[:osfamily]
+          when 'Archlinux'
+            it { is_expected.not_to contain_package('clamd') }
+          else
+            it { is_expected.to contain_package('clamd') }
+          end
           it { is_expected.to contain_file('clamd.conf') }
           it { is_expected.to contain_service('clamd') }
         end
@@ -67,7 +77,8 @@ describe 'clamav', :type => :class do
       context 'clamav::freshclam' do
         let(:params) { { :manage_freshclam => true } }
         context 'with defaults' do
-          if facts[:osfamily] == 'RedHat'
+          case facts[:osfamily]
+          when 'RedHat'
             if facts[:operatingsystemmajrelease].to_i == 6
               it { is_expected.not_to contain_package('freshclam') }
               it { is_expected.not_to contain_file('freshclam_sysconfig') }
@@ -77,10 +88,15 @@ describe 'clamav', :type => :class do
             end
             it { is_expected.to contain_file('freshclam.conf') }
             it { is_expected.not_to contain_service('freshclam') }
-          elsif facts[:osfamily] == 'Debian'
+          when 'Debian'
             it { is_expected.to contain_package('freshclam') }
             it { is_expected.to contain_file('freshclam.conf') }
             it { is_expected.to contain_service('freshclam') }
+            it { is_expected.not_to contain_file('freshclam_sysconfig') }
+          when 'Archlinux'
+            it { is_expected.not_to contain_package('freshclam') }
+            it { is_expected.to contain_file('freshclam.conf') }
+            it { is_expected.to contain_service('freshclam').with({'name' => 'clamav-freshclam'}) }
             it { is_expected.not_to contain_file('freshclam_sysconfig') }
           end
         end

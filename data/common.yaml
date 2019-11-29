@@ -1,0 +1,46 @@
+---
+clamav::params::manage_repo: false
+clamav::params::clamav_package: 'clamav'
+clamav::params::clamav_version: 'installed'
+clamav::params::freshclam_service: ~
+
+clamav::params::user: 'clamav'
+clamav::params::comment: 'Clamav scanner user'
+clamav::params::uid: 496
+clamav::params::gid: 496
+clamav::params::shell: '/sbin/nologin'
+clamav::params::home: '/'
+clamav::params::group: 'clamav'
+clamav::params::groups: ~
+
+clamav::params::clamd_package: 'clamd'
+clamav::params::clamd_version: 'installed'
+clamav::params::clamd_config: '/etc/clamav/clamd.conf'
+clamav::params::clamd_service: 'clamav-daemon'
+clamav::params::clamd_options: {}
+
+clamav::params::clamd_default_logfile: ~
+clamav::params::freshclam_default_updatelogfile: ~
+
+clamav::params::freshclam_package: 'clamav-freshclam'
+clamav::params::freshclam_version: ~
+clamav::params::freshclam_config: '/etc/clamav/freshclam.conf'
+clamav::params::freshclam_service: ~
+clamav::params::freshclam_options: {}
+clamav::params::freshclam_sysconfig: ~
+clamav::params::freshclam_delay: ~
+clamav::params::freshclam_default_pidfile: '/var/run/clamav/freshclam.pid'
+clamav::params::freshclam_default_databaseowner: 'clamav'
+
+clamav::params::clamav_milter_package: ~
+clamav::params::clamav_milter_version: ~
+clamav::params::clamav_milter_config : ~
+clamav::params::clamav_milter_service: ~
+clamav::params::clamav_milter_options: ~
+clamav::params::clamav_milter_default_options: ~
+
+clamav::params::clamd_default_databasedirectory: '/var/lib/clamav'
+clamav::params::clamd_default_logrotate: true
+clamav::params::clamd_default_logsyslog: false
+clamav::params::clamd_default_temporarydirectory: '/tmp'
+...

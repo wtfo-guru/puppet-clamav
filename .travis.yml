@@ -7,7 +7,11 @@ sudo: false
 matrix:
   fast_finish: true
   include:
-  - rvm: 2.1.9
+  - rvm: 2.5.0
+    env: PUPPET_GEM_VERSION="~> 6.0" STRICT_VARIABLES="yes"
+  - rvm: 2.4.0
+    env: PUPPET_GEM_VERSION="~> 5.0" STRICT_VARIABLES="yes"
+  - rvm: 2.3.0
     env: PUPPET_GEM_VERSION="~> 4.0" STRICT_VARIABLES="yes"
 notifications:
   email: false

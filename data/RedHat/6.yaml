@@ -1,0 +1,29 @@
+---
+clamav::params::manage_repo: true
+
+clamav::params::user: 'clam'
+clamav::params::comment: 'Clamav Anti Virus Checker'
+clamav::params::group: 'clam'
+clamav::params::home: '/var/lib/clamav'
+
+clamav::params::clamd_config: '/etc/clamd.conf'
+clamav::params::clamd_service: 'clamd'
+
+clamav::params::clamd_default_localsocket: '/var/run/clamav/clamd.sock'
+clamav::params::clamd_default_logfile: '/var/log/clamav/clamd.log'
+clamav::params::clamd_default_pidfile: '/var/run/clamav/clamd.pid'
+
+clamav::params::freshclam_package: ~
+clamav::params::freshclam_sysconfig: ~
+clamav::params::freshclam_default_databaseowner: 'clam'
+
+clamav::params::clamav_milter_package: ~
+clamav::params::clamav_milter_version: ~
+clamav::params::clamav_milter_config : ~
+clamav::params::clamav_milter_service: ~
+clamav::params::clamav_milter_options: ~
+clamav::params::clamav_milter_default_options: ~
+
+clamav::params::clamd_default_logrotate: ~
+clamav::params::clamd_default_logsyslog: true
+...
