@@ -4,7 +4,7 @@ clamav::params::comment: 'Clamav scanner user'
 clamav::params::group: 'clamscan'
 clamav::params::home: '/'
 
-clamav::params::clamd_package: 'clam'
+#clamav::params::clamd_package: 'clam'
 clamav::params::clamd_config: '/etc/clamd.d/scan.conf'
 clamav::params::clamd_service: 'clamd@scan'
 
