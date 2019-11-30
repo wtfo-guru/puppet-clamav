@@ -26,4 +26,7 @@ clamav::params::clamav_milter_default_options: ~
 
 clamav::params::clamd_default_logrotate: ~
 clamav::params::clamd_default_logsyslog: true
+
+clamav::params::clamd_os_specific_default_options:
+  DetectBrokenExecutables: false
 ...
