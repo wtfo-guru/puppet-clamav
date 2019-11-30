@@ -1,0 +1,6 @@
+---
+clamav::params::clamd_os_specific_default_options:
+  DetectBrokenExecutables: false
+
+clamav::clamd_requires_daily_inc: true
+...

@@ -39,4 +39,14 @@ class clamav::clamd {
     hasstatus  => true,
     subscribe  => $service_subscribe,
   }
+
+  if lookup('clamav::clamd_requires_daily_inc', Boolean, first, false) {
+    # some systems will not start the service without this file
+    file {"${clamav::params::clamd_default_databasedirectory}/daily.inc":
+      ensure => file,
+      mode   => '0644',
+      owner  => $clamav::user,
+      group  => $clamav::group,
+    }
+  }
 }

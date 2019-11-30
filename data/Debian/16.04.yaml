@@ -1,0 +1,3 @@
+---
+clamav::clamd_requires_daily_inc: true
+...

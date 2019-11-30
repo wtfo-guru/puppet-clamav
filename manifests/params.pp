@@ -58,7 +58,7 @@ class clamav::params (
   $clamav_milter_service_ensure = 'running'
   $clamav_milter_service_enable = true
 
-  $clamd_default_options = {
+  $clamd_common_defaults = {
     'AlgorithmicDetection'           => true,
     'AllowAllMatchScan'              => true,
     'ArchiveBlockEncrypted'          => false,
@@ -69,7 +69,6 @@ class clamav::params (
     'CrossFilesystems'               => true,
     'DatabaseDirectory'              => $clamd_default_databasedirectory,
     'Debug'                          => false,
-    'DetectBrokenExecutables'        => false,
     'DetectPUA'                      => false,
     'DisableCertCheck'               => false,
     'ExitOnOOM'                      => false,
@@ -127,6 +126,10 @@ class clamav::params (
     'TemporaryDirectory'             => $clamd_default_temporarydirectory,
     'User'                           => $user,
   }
+
+  $clamd_os_specific_defaults = lookup('clamav::params::clamd_os_specific_default_options', Hash, deep, {})
+  #  'DetectBrokenExecutables'        => false,
+  $clamd_default_options = merge($clamd_common_defaults, $clamd_os_specific_defaults)
 
   $freshclam_default_options = {
     'Bytecode'                 => true,
