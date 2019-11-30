@@ -20,7 +20,7 @@ clamav::params::clamd_service: 'clamav-daemon'
 clamav::params::clamd_options: {}
 
 clamav::params::clamd_default_logfile: ~
-clamav::params::freshclam_default_updatelogfile: ~
+clamav::params::freshclam_default_updatelogfile: '/var/log/clamav/freshclam.log'
 
 clamav::params::freshclam_package: 'clamav-freshclam'
 clamav::params::freshclam_version: ~

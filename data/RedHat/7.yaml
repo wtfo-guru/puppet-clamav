@@ -6,5 +6,7 @@ clamav::params::comment: 'Clamav Anti Virus Checker'
 clamav::params::group: 'clam'
 clamav::params::home: '/var/lib/clamav'
 
+clamav::params::freshclam_default_updatelogfile: ~
+
 clamav::params::clamd_package: 'clamav-scanner-systemd'
 ...
