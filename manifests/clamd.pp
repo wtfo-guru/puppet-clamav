@@ -47,6 +47,7 @@ class clamav::clamd {
       mode   => '0644',
       owner  => $clamav::user,
       group  => $clamav::group,
+      before => Service['clamd'],
     }
   }
 }
