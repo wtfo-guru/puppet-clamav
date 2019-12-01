@@ -13,7 +13,6 @@ clamav::params::clamd_default_localsocket: '/var/run/clamav/clamd.sock'
 clamav::params::clamd_default_logfile: '/var/log/clamav/clamd.log'
 clamav::params::clamd_default_pidfile: '/var/run/clamav/clamd.pid'
 
-clamav::params::freshclam_package: ~
 clamav::params::freshclam_sysconfig: ~
 clamav::params::freshclam_default_databaseowner: 'clam'
 

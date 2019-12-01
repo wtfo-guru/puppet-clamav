@@ -1,10 +1,7 @@
 ---
 clamav::params::manage_repo: true
 
-clamav::params::user: 'clam'
 clamav::params::comment: 'Clamav Anti Virus Checker'
-clamav::params::group: 'clam'
-clamav::params::home: '/var/lib/clamav'
 
 clamav::params::freshclam_default_updatelogfile: ~
 

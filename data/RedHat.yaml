@@ -4,14 +4,13 @@ clamav::params::comment: 'Clamav scanner user'
 clamav::params::group: 'clamscan'
 clamav::params::home: '/'
 
-#clamav::params::clamd_package: 'clam'
 clamav::params::clamd_config: '/etc/clamd.d/scan.conf'
 clamav::params::clamd_service: 'clamd@scan'
-
 
 clamav::params::clamd_default_localsocket: '/var/run/clamd.scan/clamd.sock'
 clamav::params::clamd_default_pidfile: '/var/run/clamd.scan/clamd.pid'
 
+clamav::params::freshclam_package: 'clamav-update'
 clamav::params::freshclam_config: '/etc/freshclam.conf'
 clamav::params::freshclam_sysconfig: '/etc/sysconfig/freshclam'
 clamav::params::freshclam_default_pidfile: ~
